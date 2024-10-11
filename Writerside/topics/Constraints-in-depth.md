@@ -92,5 +92,6 @@ CREATE TABLE test(
     id SERIAL PRIMARY KEY,
     email_address UNIQUE NOT NULL,
     age INT CHECK(age >= 15)
+);
 ```
 In this case, the CHECK constraint ensures that no record has the age entry below 15.
