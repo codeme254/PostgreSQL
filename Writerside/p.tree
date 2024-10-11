@@ -11,5 +11,7 @@
     <toc-element topic="Conncecting-to-a-Database-Server.md"/>
     <toc-element topic="Create-a-database.md"/>
     <toc-element topic="Tables.md"/>
-    <toc-element topic="Constraints-in-depth.md"/>
+    <toc-element topic="Data-types.md"/>
+    <toc-element topic="Constraints-in-depth.md">
+    </toc-element>
 </instance-profile>
