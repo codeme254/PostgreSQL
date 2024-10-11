@@ -14,4 +14,5 @@
     <toc-element topic="Data-types.md"/>
     <toc-element topic="Constraints-in-depth.md">
     </toc-element>
+    <toc-element topic="SELECT-query.md"/>
 </instance-profile>
