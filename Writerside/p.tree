@@ -9,4 +9,7 @@
     <toc-element topic="starter.md"/>
     <toc-element topic="Installation-and-Setup.md"/>
     <toc-element topic="Conncecting-to-a-Database-Server.md"/>
+    <toc-element topic="Create-a-database.md"/>
+    <toc-element topic="Tables.md"/>
+    <toc-element topic="Constraints-in-depth.md"/>
 </instance-profile>
