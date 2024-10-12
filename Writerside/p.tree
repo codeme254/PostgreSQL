@@ -21,4 +21,5 @@
     <toc-element topic="WHERE-clause.md"/>
     <toc-element topic="LIMIT-OFFSET-FETCH.md" accepts-web-file-names-ref="3cf4c8a"/>
     <toc-element topic="Aggregate-functions.md"/>
+    <toc-element topic="GROUP-BY.md"/>
 </instance-profile>
