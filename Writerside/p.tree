@@ -23,4 +23,5 @@
     <toc-element topic="Aggregate-functions.md"/>
     <toc-element topic="GROUP-BY.md"/>
     <toc-element topic="Math-functions.md"/>
+    <toc-element topic="COALESCE.md"/>
 </instance-profile>
