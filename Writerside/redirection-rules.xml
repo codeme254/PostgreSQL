@@ -10,4 +10,8 @@
         <description>Created after removal of "Creating and Connecting to a Database" from PostgreSQL</description>
         <accepts>Creating-and-Connecting-to-a-Database.html</accepts>
     </rule>
+    <rule id="3cf4c8a">
+        <description>Created after removal of "Aggregate functions" from PostgreSQL</description>
+        <accepts>Aggregate-functions.html</accepts>
+    </rule>
 </rules>

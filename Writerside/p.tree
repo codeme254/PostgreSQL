@@ -19,4 +19,5 @@
     <toc-element topic="DISTINCT.md"/>
     <toc-element topic="Comparison-operators.md"/>
     <toc-element topic="WHERE-clause.md"/>
+    <toc-element topic="LIMIT-OFFSET-FETCH.md" accepts-web-file-names-ref="3cf4c8a"/>
 </instance-profile>
