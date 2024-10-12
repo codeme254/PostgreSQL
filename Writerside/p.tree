@@ -17,4 +17,5 @@
     <toc-element topic="SELECT-query.md"/>
     <toc-element topic="ORDER-BY.md"/>
     <toc-element topic="DISTINCT.md"/>
+    <toc-element topic="Comparison-operators.md"/>
 </instance-profile>
