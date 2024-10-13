@@ -26,4 +26,5 @@
     <toc-element topic="COALESCE.md"/>
     <toc-element topic="Timestamps-and-Dates.md"/>
     <toc-element topic="Primary-Keys.md"/>
+    <toc-element topic="Relationships.md"/>
 </instance-profile>
