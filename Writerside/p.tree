@@ -27,4 +27,5 @@
     <toc-element topic="Timestamps-and-Dates.md"/>
     <toc-element topic="Primary-Keys.md"/>
     <toc-element topic="Relationships.md"/>
+    <toc-element topic="Joins.md"/>
 </instance-profile>
