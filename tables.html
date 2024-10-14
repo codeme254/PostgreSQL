@@ -1,0 +1,61 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-10-14T06:40:01.7115162"><title>Tables | PostgreSQL</title><script type="application/json" id="virtual-toc-data">[{"id":"creating-a-table","level":0,"title":"Creating a table","anchor":"#creating-a-table"},{"id":"inserting-data-to-a-table","level":0,"title":"Inserting data to a table","anchor":"#inserting-data-to-a-table"},{"id":"updating-a-table","level":0,"title":"Updating a table","anchor":"#updating-a-table"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Tables | PostgreSQL"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="PostgreSQL Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/tables.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Tables | PostgreSQL"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/tables.html#webpage",
+    "url": "writerside-documentation/tables.html",
+    "name": "Tables | PostgreSQL",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "PostgreSQL Help"
+}</script><!-- End Schema.org --></head><body data-id="Tables" data-main-title="Tables" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs=""><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>PostgreSQL  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Tables" id="Tables.md">Tables</h1><p id="-iy7m1x_3">A table in sql is a structured collection of data organized into <span class="control" id="-iy7m1x_10">rows</span> and <span class="control" id="-iy7m1x_11">columns</span>. <br> Each row represents a single record, and each column represents a specific attribute of that record. <br> Tables are the fundamental units for storing data in relational databases like PostgreSQL. <br> For example, a table called employees might have columns like id, name, position, and salary, with each row holding the details for one employee.</p><p id="-iy7m1x_4">To create a table in psql, we need to be connected to a database. <br> Let's create a database called &quot;school&quot; and connect to it.</p><figure id="-iy7m1x_5"><img alt="create a database" src="images/tables-img-1.png" title="create a database" width="759" height="136"></figure><p id="-iy7m1x_6">Now we can start creating tables for our database.</p><section class="chapter"><h2 id="creating-a-table" data-toc="creating-a-table">Creating a table</h2><p id="-iy7m1x_16">In SQL, tables can be classified based on the presence of constraints:</p><ul class="list _bullet" id="-iy7m1x_17"><li class="list__item" id="-iy7m1x_21"><p>A table with constraints</p></li><li class="list__item" id="-iy7m1x_22"><p>A table without constraints.</p></li></ul><p id="-iy7m1x_18">A <span class="control" id="-iy7m1x_23">constraint</span> is a rule or condition applied to a table's column(s) to ensure the integrity, accuracy, and reliability of the data. <br> Constraints enforce specific requirements on the data being inserted or updated in a table, preventing invalid data from entering the database.</p><section class="chapter"><h3 id="creating-a-table-without-constraints" data-toc="creating-a-table-without-constraints">Creating a table without constraints</h3><p id="-iy7m1x_25">To create a table without constraints, we use the query below:</p><div class="code-block" data-lang="sql">
+CREATE TABLE table_name(
+    column_name_1 data_type,
+    column_name_2 data_type,
+    ...
+    column_name_n data_type
+);
+</div><p id="-iy7m1x_27">We use the <code class="code" id="-iy7m1x_34">CREATE TABLE</code> query, and then we define the table name, inside the parenthesis, we list the columns present in our table and their data types.</p><p id="-iy7m1x_28">A <span class="control" id="-iy7m1x_35">data type</span> defines the kind of data that can be stored in that column such as number, text, text etc. and the operations that can be performed on the value.</p><p id="-iy7m1x_29">If the query gets executed successfully, it returns the string <code class="code" id="-iy7m1x_36">CREATE TABLE</code>.</p><p id="-iy7m1x_30">Let's create a table called &quot;Students&quot; with the following columns; first name, last name, email address, registration number, age and date of admission.</p><div class="code-block" data-lang="sql">
+CREATE TABLE Students(
+    first_name VARCHAR(100),
+    last_name VARCHAR(100),
+    email_address VARCHAR(100),
+    age INT,
+    date_of_admission DATE
+);
+</div><figure id="-iy7m1x_32"><img alt="Create table without constraints" src="images/create-table-no-constraints.png" title="Create table without constraints" width="559" height="292"></figure><p id="-iy7m1x_33">This SQL query creates a table called Students with five columns: first_name, last_name, email_address, age, and date_of_admission. The first_name, last_name, and email_address columns are all variable-length strings with a maximum of 100 characters, while age is an integer, and date_of_admission is a date field that stores the student's admission date.</p></section><section class="chapter"><h3 id="creating-a-table-with-constraints" data-toc="creating-a-table-with-constraints">Creating a table with constraints</h3><p id="-iy7m1x_37">To create a table with constraints, we use the query below:</p><div class="code-block" data-lang="sql">
+CREATE TABLE table_name(
+    column_name_1 data_type constraint,
+    column_name_2 data_type constraint,
+    ...
+    column_name_n data_type constraint
+);
+</div><p id="-iy7m1x_39">Let's create a table called &quot;Lecturers&quot; with the columns first_name, last_name, email_address, and work_id, ensuring that none of these fields can be left empty during data insertion by applying the NOT NULL constraint to each column.</p><div class="code-block" data-lang="sql">
+CREATE TABLE Lecturers(
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    email_address VARCHAR(100) NOT NULL UNIQUE,
+    work_id VARCHAR(100) NOT NULL UNIQUE
+);
+</div><p id="-iy7m1x_41">This SQL query creates a table named Lecturers with four columns: first_name, last_name, email_address, and work_id, all of which are variable-length strings up to 100 characters. Each column has the NOT NULL constraint, ensuring that no field can be left empty during data insertion. Additionally, the email_address and work_id columns are marked as UNIQUE, preventing duplicate values for these fields. This table structure ensures data integrity by enforcing both uniqueness and the requirement that all fields are filled in.</p><p id="-iy7m1x_42">To view all the tables we have in our database, we can use the <code class="code" id="-iy7m1x_44">\d</code> command as shown.</p><figure id="-iy7m1x_43"><img alt="List all tables" src="images/list-all-tables.png" title="List all tables" width="625" height="238"></figure></section></section><section class="chapter"><h2 id="inserting-data-to-a-table" data-toc="inserting-data-to-a-table">Inserting data to a table</h2><p id="-iy7m1x_45">We can insert data into our table using the <code class="code" id="-iy7m1x_53">INSERT INTO</code> query, we then specify the table name and inside parenthesis we specify the columns that we want to insert, we then specify <code class="code" id="-iy7m1x_54">VALUES</code> which takes a list of values we want to insert matching the columns and their data types.</p><div class="code-block" data-lang="sql">
+INSERT INTO table_name(
+    column_1,
+    column_2,
+    ...
+    column_n
+) VALUES (column_1_value, column_2_value, ..., column_n_value);
+</div><p id="-iy7m1x_47">Let's insert a record to the Lecturers table:</p><div class="code-block" data-lang="sql">
+INSERT INTO Lecturers(
+    first_name,
+    last_name,
+    email_address,
+    work_id
+) VALUES('John', 'Doe', 'johndoe@gmail.com', 'LEC001');
+</div><figure id="-iy7m1x_49"><img alt="insert into" src="images/insert-into.png" title="insert into" width="871" height="214"></figure><p id="-iy7m1x_50">You can confirm that the data has been inserted by running the query below (more about it later) for now, just replace table_name with 'Lecturers':</p><div class="code-block" data-lang="sql">
+SELECT * FROM table_name;
+</div><figure id="-iy7m1x_52"><img alt="select" src="images/select.png" title="select" width="742" height="157"></figure></section><section class="chapter"><h2 id="updating-a-table" data-toc="updating-a-table">Updating a table</h2></section><div class="last-modified">Last modified: 14 October 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="create-a-database.html" class="navigation-links__prev">Create a database</a><a href="data-types.html" class="navigation-links__next">Data types</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.js"></script></body></html>

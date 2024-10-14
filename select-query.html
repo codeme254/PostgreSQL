@@ -1,0 +1,52 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-10-14T06:40:01.6999396"><title>SELECT | PostgreSQL</title><script type="application/json" id="virtual-toc-data">[{"id":"syntax","level":0,"title":"Syntax","anchor":"#syntax"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="SELECT | PostgreSQL"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="PostgreSQL Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/select-query.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="SELECT | PostgreSQL"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/select-query.html#webpage",
+    "url": "writerside-documentation/select-query.html",
+    "name": "SELECT | PostgreSQL",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "PostgreSQL Help"
+}</script><!-- End Schema.org --></head><body data-id="SELECT-query" data-main-title="SELECT" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs=""><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>PostgreSQL  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="SELECT-query" id="SELECT-query.md">SELECT</h1><p id="z8pl2h_3">The SELECT statement is used fetch data from a database table, which returns the data in the form of result table.</p><p id="z8pl2h_4">These results are called result-sets.</p><section class="chapter"><h2 id="syntax" data-toc="syntax">Syntax</h2><p id="z8pl2h_6">The basic syntax of select statement is as follows:</p><div class="code-block" data-lang="sql">
+SELECT column1, column2, columnN FROM table_name;
+</div><p id="z8pl2h_8">In our school database, let's create a table called lecturers and insert the following data to help us better demonstrate everything.</p><div class="code-block" data-lang="sql">
+CREATE TABLE lecturers (
+	id SERIAL PRIMARY KEY,
+	first_name VARCHAR(50) NOT NULL,
+	last_name VARCHAR(50) NOT NULL,
+	email VARCHAR(50) NOT NULL UNIQUE,
+	location VARCHAR(50) NOT NULL,
+	age INT NOT NULL
+);
+
+INSERT INTO lecturers (id, first_name, last_name, email, location, age) VALUES (1, 'Arney', 'Sharman', 'asharman0@ox.ac.uk', 'Apt 392', 63);
+INSERT INTO lecturers (id, first_name, last_name, email, location, age) VALUES (2, 'Pepita', 'Weekland', 'pweekland1@apache.org', 'Suite 27', 53);
+INSERT INTO lecturers (id, first_name, last_name, email, location, age) VALUES (3, 'Inglis', 'Gifford', 'igifford2@accuweather.com', 'PO Box 98326', 50);
+INSERT INTO lecturers (id, first_name, last_name, email, location, age) VALUES (4, 'Gwenny', 'Eberlein', 'geberlein3@mit.edu', '1st Floor', 26);
+INSERT INTO lecturers (id, first_name, last_name, email, location, age) VALUES (5, 'Stefa', 'McCloud', 'smccloud4@paypal.com', 'Room 1442', 68);
+INSERT INTO lecturers (id, first_name, last_name, email, location, age) VALUES (6, 'Alfons', 'Terbeck', 'aterbeck5@soup.io', '6th Floor', 56);
+INSERT INTO lecturers (id, first_name, last_name, email, location, age) VALUES (7, 'Bondon', 'Fennessy', 'bfennessy6@answers.com', 'Suite 23', 31);
+INSERT INTO lecturers (id, first_name, last_name, email, location, age) VALUES (8, 'Ingelbert', 'Gomer', 'igomer7@amazon.co.uk', 'Apt 920', 55);
+INSERT INTO lecturers (id, first_name, last_name, email, location, age) VALUES (9, 'Pearline', 'Parsley', 'pparsley8@sogou.com', 'Apt 431', 52);
+INSERT INTO lecturers (id, first_name, last_name, email, location, age) VALUES (10, 'Sadye', 'Baccus', 'sbaccus9@diigo.com', 'PO Box 77938', 35);
+INSERT INTO lecturers (id, first_name, last_name, email, location, age) VALUES (11, 'Else', 'Marini', 'emarinia@va.gov', 'PO Box 50572', 51);
+INSERT INTO lecturers (id, first_name, last_name, email, location, age) VALUES (12, 'Amye', 'Brayley', 'abrayleyb@amazon.co.uk', 'Room 906', 47);
+INSERT INTO lecturers (id, first_name, last_name, email, location, age) VALUES (13, 'Breena', 'Pettendrich', 'bpettendrichc@state.gov', 'Room 1305', 63);
+INSERT INTO lecturers (id, first_name, last_name, email, location, age) VALUES (14, 'Glen', 'Beavan', 'gbeavand@wp.com', '15th Floor', 58);
+INSERT INTO lecturers (id, first_name, last_name, email, location, age) VALUES (15, 'Giacopo', 'Petett', 'gpetette@360.cn', '15th Floor', 35);
+INSERT INTO lecturers (id, first_name, last_name, email, location, age) VALUES (16, 'Dallon', 'Bonnett', 'dbonnettf@mashable.com', 'Suite 41', 55);
+INSERT INTO lecturers (id, first_name, last_name, email, location, age) VALUES (17, 'Forrester', 'Berrecloth', 'fberreclothg@fda.gov', 'Suite 8', 48);
+INSERT INTO lecturers (id, first_name, last_name, email, location, age) VALUES (18, 'Kai', 'Exall', 'kexallh@slate.com', 'Room 303', 53);
+INSERT INTO lecturers (id, first_name, last_name, email, location, age) VALUES (19, 'Vic', 'Cicconettii', 'vcicconettiii@lycos.com', 'Apt 1737', 33);
+INSERT INTO lecturers (id, first_name, last_name, email, location, age) VALUES (20, 'Kata', 'Wordesworth', 'kwordesworthj@ycombinator.com', '4th Floor', 27);
+</div><p id="z8pl2h_10">Let's get all the lecturers, we want the first_name, last_name and email fields only:</p><div class="code-block" data-lang="sql">
+SELECT first_name, last_name, email FROM lecturers;
+</div><figure id="z8pl2h_12"><img alt="select some fields" src="images/select-some-fields.png" title="select some fields" width="559" height="522"></figure><p id="z8pl2h_13">If you want to fetch all the fields, you can use the asterisk symbol (*) to mean all the fields:</p><div class="code-block" data-lang="sql">
+SELECT * FROM lecturers;
+</div><figure id="z8pl2h_15"><img alt="select everything" src="images/select-everything.png" title="select everything" width="770" height="463"></figure></section><div class="last-modified">Last modified: 14 October 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="constraints-in-depth.html" class="navigation-links__prev">Constraints in-depth</a><a href="order-by.html" class="navigation-links__next">ORDER BY</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.js"></script></body></html>

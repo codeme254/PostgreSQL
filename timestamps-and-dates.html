@@ -1,0 +1,50 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-10-14T06:40:01.7287628"><title>Timestamps and Dates | PostgreSQL</title><script type="application/json" id="virtual-toc-data">[{"id":"extracting-specific-fields-from-a-timestamp","level":0,"title":"Extracting specific fields from a timestamp","anchor":"#extracting-specific-fields-from-a-timestamp"},{"id":"adding-and-subtracting-dates","level":0,"title":"Adding and Subtracting Dates","anchor":"#adding-and-subtracting-dates"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Timestamps and Dates | PostgreSQL"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="PostgreSQL Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/timestamps-and-dates.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Timestamps and Dates | PostgreSQL"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/timestamps-and-dates.html#webpage",
+    "url": "writerside-documentation/timestamps-and-dates.html",
+    "name": "Timestamps and Dates | PostgreSQL",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "PostgreSQL Help"
+}</script><!-- End Schema.org --></head><body data-id="Timestamps-and-Dates" data-main-title="Timestamps and Dates" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs=""><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>PostgreSQL  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Timestamps-and-Dates" id="Timestamps-and-Dates.md">Timestamps and Dates</h1><p id="-eg86nz_3">Timestamp is a combination of Date, Hour, Minutes Seconds and even Milliseconds.</p><p id="-eg86nz_4">To get the current timestamp, we can use the NOW() function.</p><div class="code-block" data-lang="sql">
+SELECT NOW();
+</div><figure id="-eg86nz_6"><img alt="now" src="images/now.png" title="now" width="303" height="159"></figure><p id="-eg86nz_7">To get a date out of the NOW() function, we cast the date as shown below:</p><div class="code-block" data-lang="sql">
+SELECT NOW()::DATE;
+</div><figure id="-eg86nz_9"><img alt="now date" src="images/now-date.png" title="now date" width="275" height="169"></figure><p id="-eg86nz_10">To get the time, we simply cast the time as shown.</p><div class="code-block" data-lang="sql">
+SELECT NOW()::TIME;
+</div><figure id="-eg86nz_12"><img alt="now time" src="images/now-time.png" title="now time" width="308" height="151"></figure><section class="chapter"><h2 id="extracting-specific-fields-from-a-timestamp" data-toc="extracting-specific-fields-from-a-timestamp">Extracting specific fields from a timestamp</h2><p id="-eg86nz_15">To extract specific fields from a timestamp, we can use the EXTRACT() method as shown:</p><p id="-eg86nz_16">Extracting year:</p><div class="code-block" data-lang="sql">
+SELECT EXTRACT(YEAR FROM NOW());
+</div><figure id="-eg86nz_18"><img alt="extract year" src="images/extract-year.png" title="extract year" width="387" height="170"></figure><p id="-eg86nz_19">Extracting the month:</p><div class="code-block" data-lang="sql">
+SELECT EXTRACT(MONTH FROM NOW());
+</div><figure id="-eg86nz_21"><img alt="extract month" src="images/extract-month.png" title="extract month" width="382" height="154"></figure><p id="-eg86nz_22">Extracting the day:</p><div class="code-block" data-lang="sql">
+SELECT EXTRACT(DAY FROM NOW());
+</div><figure id="-eg86nz_24"><img alt="extract day" src="images/extract-day.png" title="extract day" width="391" height="163"></figure><p id="-eg86nz_25">Extracting the day of the week:</p><div class="code-block" data-lang="sql">
+SELECT EXTRACT(DOW FROM NOW());
+</div><figure id="-eg86nz_27"><img alt="extract the day of the week" src="images/extract-day-of-the-week.png" title="extract the day of the week" width="376" height="154"></figure><p id="-eg86nz_28">0 means Sunday, 1 means Monday ... 6 means Saturday</p><p id="-eg86nz_29">Extracting the century:</p><div class="code-block" data-lang="sql">
+SELECT EXTRACT(CENTURY FROM NOW());
+</div><figure id="-eg86nz_31"><img alt="extracting the century" src="images/extract-century.png" title="extracting the century" width="410" height="157"></figure><p id="-eg86nz_32">Extracting hours</p><div class="code-block" data-lang="sql">
+SELECT EXTRACT(HOURS FROM NOW());
+</div><figure id="-eg86nz_34"><img alt="extracting hours" src="images/extract-hours.png" title="extracting hours" width="394" height="153"></figure><p id="-eg86nz_35">Extracting minutes</p><div class="code-block" data-lang="sql">
+SELECT EXTRACT(MINUTES FROM NOW());
+</div><figure id="-eg86nz_37"><img alt="extract minutes" src="images/extract-minutes.png" title="extract minutes" width="399" height="152"></figure><p id="-eg86nz_38">Extracting seconds</p><div class="code-block" data-lang="sql">
+SELECT EXTRACT(SECONDS FROM NOW());
+</div><figure id="-eg86nz_40"><img alt="extract seconds" src="images/extract-seconds.png" title="extract seconds" width="400" height="148"></figure></section><section class="chapter"><h2 id="adding-and-subtracting-dates" data-toc="adding-and-subtracting-dates">Adding and Subtracting Dates</h2><p id="-eg86nz_41">Assume we want to subtract 1 year from now, we use the INTERVAL keyword and then within quotes we specify the time as shown:</p><div class="code-block" data-lang="sql">
+SELECT NOW() - INTERVAL '1 YEAR';
+</div><figure id="-eg86nz_43"><img alt="subtract 1 year" src="images/subtract-1-year.png" title="subtract 1 year" width="392" height="160"></figure><p id="-eg86nz_44">If we want to subtract 20 years:</p><div class="code-block" data-lang="sql">
+SELECT NOW() - INTERVAL '20 YEARS';
+</div><figure id="-eg86nz_46"><img alt="subtract 20 years" src="images/subtract-20-years.png" title="subtract 20 years" width="410" height="156"></figure><p id="-eg86nz_47">If we want to subtract 1 month</p><div class="code-block" data-lang="sql">
+SELECT NOW() - INTERVAL '1 MONTH';
+</div><figure id="-eg86nz_49"><img alt="subtact 1 month" src="images/subtract-1-month.png" title="subtact 1 month" width="406" height="150"></figure><p id="-eg86nz_50">If we want to subtract 5 months</p><div class="code-block" data-lang="sql">
+SELECT NOW() - INTERVAL '5 MONTHS';
+</div><figure id="-eg86nz_52"><img alt="subtract 5 months" src="images/subtract-5-months.png" title="subtract 5 months" width="418" height="151"></figure><p id="-eg86nz_53">If we want to subtract 1 Day</p><div class="code-block" data-lang="sql">
+SELECT NOW() - INTERVAL '1 DAY';
+</div><figure id="-eg86nz_55"><img alt="subtract 1 day" src="images/subtract-1-day.png" title="subtract 1 day" width="384" height="156"></figure><p id="-eg86nz_56">If we wanted to subtract 3 days:</p><div class="code-block" data-lang="sql">
+SELECT NOW() - INTERVAL '3 DAYS';
+</div><figure id="-eg86nz_58"><img alt="subtract 3 days" src="images/subtract-3-days.png" title="subtract 3 days" width="395" height="154"></figure></section><div class="last-modified">Last modified: 14 October 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="coalesce.html" class="navigation-links__prev">COALESCE</a><a href="primary-keys.html" class="navigation-links__next">Primary Keys</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.js"></script></body></html>

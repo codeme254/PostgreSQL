@@ -1,0 +1,32 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-10-14T06:40:01.7074814"><title>COALESCE | PostgreSQL</title><script type="application/json" id="virtual-toc-data">[]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="COALESCE | PostgreSQL"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="PostgreSQL Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/coalesce.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="COALESCE | PostgreSQL"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/coalesce.html#webpage",
+    "url": "writerside-documentation/coalesce.html",
+    "name": "COALESCE | PostgreSQL",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "PostgreSQL Help"
+}</script><!-- End Schema.org --></head><body data-id="COALESCE" data-main-title="COALESCE" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs=""><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>PostgreSQL  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="COALESCE" id="COALESCE.md">COALESCE</h1><p id="-q4nc07_3">The COALESCE operator allows us to have a default value in case the first one is not present.</p><p id="-q4nc07_4">It is particularly useful when working with data that may contain NULL values, as ita allows you to provide default or alternative data when NULL is encountered.</p><p id="-q4nc07_5">Example Suppose we have a table called &quot;test&quot;:</p><div class="code-block" data-lang="sql">
+CREATE TABLE test (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50),
+    phone_number VARCHAR(20)
+);
+</div><p id="-q4nc07_7">Add the following data:</p><div class="code-block" data-lang="sql">
+INSERT INTO test (name, phone_number)
+VALUES ('John', '123-456-7890'), ('Jane', NULL), 
+('Sam', '987-654-3210'), ('Kennedy', NULL);
+</div><p id="-q4nc07_9">When we select all the columns from the table, some records will have empty values in the phone_number fields as shown:</p><figure id="-q4nc07_10"><img alt="no coalesce" src="images/coalesce-1.png" title="no coalesce" width="304" height="207"></figure><p id="-q4nc07_11">Sometimes, we don't want this behavior.</p><p id="-q4nc07_12">To fix this, we can provide default values, for example 'N/A' where there is no phone number.</p><div class="code-block" data-lang="sql">
+SELECT *, COALESCE(phone_number, 'N/A') FROM test;
+</div><figure id="-q4nc07_14"><img alt="coalesce" src="images/coalesce-2.png" title="coalesce" width="546" height="216"></figure><p id="-q4nc07_15">This has introduced a new field called COALESCE with each record having a default value ('N/A') in case they don't have a value for this column.</p><p id="-q4nc07_16">We can rename this field as shown:</p><div class="code-block" data-lang="sql">
+SELECT *, COALESCE(phone_number, 'N/A') AS contact_number FROM test;
+</div><figure id="-q4nc07_18"><img alt="coalesce as" src="images/coalesce-as.png" title="coalesce as" width="699" height="158"></figure><p id="-q4nc07_19">We can get rid of the phone_number field if we want:</p><div class="code-block" data-lang="sql">
+SELECT id, name, COALESCE(phone_number, 'N/A') AS contact_number FROM test;
+</div><figure id="-q4nc07_21"><img alt="coalescing and removing the phone_number field" src="images/coalesce-and-remove-column.png" title="coalescing and removing the phone_number field" width="765" height="213"></figure><div class="last-modified">Last modified: 14 October 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="math-functions.html" class="navigation-links__prev">Math functions</a><a href="timestamps-and-dates.html" class="navigation-links__next">Timestamps and Dates</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.js"></script></body></html>
